@@ -10,13 +10,13 @@ class ChatMessage {
     required this.id,
     required this.text,
     required this.isUser,
-    required this.timestamp,
+    this.timestamp,
   });
 
   final String id;
   final String text;
   final bool isUser;
-  final DateTime timestamp;
+  final DateTime? timestamp;
 }
 
 final _chatMessagesProvider = StateProvider<List<ChatMessage>>((ref) => [
@@ -24,7 +24,6 @@ final _chatMessagesProvider = StateProvider<List<ChatMessage>>((ref) => [
     id: '0',
     text: "Hello! I'm your VaultAI Assistant. I can help you find information about your documents, answer questions, and provide summaries. What would you like to know?",
     isUser: false,
-    timestamp: null as dynamic,
   ),
 ]);
 

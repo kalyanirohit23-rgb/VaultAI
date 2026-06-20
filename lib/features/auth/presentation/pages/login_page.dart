@@ -57,12 +57,12 @@ class _LoginPageState extends ConsumerState<LoginPage> with TickerProviderStateM
     final isDark = theme.brightness == Brightness.dark;
 
     ref.listen<AuthState>(authControllerProvider, (_, state) {
-      if (state is _AuthStateAuthenticated) {
+      if (state is AuthStateAuthenticated) {
         context.go(AppRoutes.home);
-      } else if (state is _AuthStateError) {
+      } else if (state is AuthStateError) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text((state as dynamic).message as String),
+            content: Text((state as AuthStateError).message),
             backgroundColor: AppColors.error,
           ),
         );
@@ -219,7 +219,7 @@ class _LoginPageState extends ConsumerState<LoginPage> with TickerProviderStateM
   }
 
   Widget _buildSignInButton(AuthState authState) {
-    final isLoading = authState is _AuthStateLoading;
+    final isLoading = authState is AuthStateLoading;
     return GradientButton(
       text: 'Sign In',
       isLoading: isLoading,

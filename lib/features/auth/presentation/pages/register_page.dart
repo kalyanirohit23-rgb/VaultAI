@@ -56,12 +56,12 @@ class _RegisterPageState extends ConsumerState<RegisterPage> with TickerProvider
     final theme = Theme.of(context);
 
     ref.listen<AuthState>(authControllerProvider, (_, state) {
-      if (state is _AuthStateAuthenticated) {
+      if (state is AuthStateAuthenticated) {
         context.go(AppRoutes.home);
-      } else if (state is _AuthStateError) {
+      } else if (state is AuthStateError) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text((state as dynamic).message as String),
+            content: Text((state as AuthStateError).message),
             backgroundColor: AppColors.error,
           ),
         );
@@ -199,7 +199,7 @@ class _RegisterPageState extends ConsumerState<RegisterPage> with TickerProvider
                   const SizedBox(height: 24),
                   GradientButton(
                     text: 'Create Account',
-                    isLoading: authState is _AuthStateLoading,
+                    isLoading: authState is AuthStateLoading,
                     onPressed: _register,
                   ),
                   const SizedBox(height: 24),

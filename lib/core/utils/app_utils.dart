@@ -151,7 +151,7 @@ class StringUtils {
     final name = parts[0];
     final domain = parts[1];
     if (name.length <= 2) return '${name[0]}*@$domain';
-    return '${name.substring(0, 2)}${'*' * (name.length - 2)}@$domain';
+    return '${name.substring(0, 2)}**@$domain';
   }
 
   static String generateInitials(String name) {

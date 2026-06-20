@@ -107,7 +107,7 @@ class AuthController extends StateNotifier<AuthState> {
   }
 
   void clearError() {
-    if (state is _AuthStateError) {
+    if (state is AuthStateError) {
       state = const AuthState.initial();
     }
   }
@@ -116,38 +116,38 @@ class AuthController extends StateNotifier<AuthState> {
 // Auth state sealed class
 sealed class AuthState {
   const AuthState();
-  const factory AuthState.initial() = _AuthStateInitial;
-  const factory AuthState.loading() = _AuthStateLoading;
-  const factory AuthState.authenticated(UserEntity user) = _AuthStateAuthenticated;
-  const factory AuthState.unauthenticated() = _AuthStateUnauthenticated;
-  const factory AuthState.error(String message) = _AuthStateError;
-  const factory AuthState.passwordResetSent() = _AuthStatePasswordResetSent;
+  const factory AuthState.initial() = AuthStateInitial;
+  const factory AuthState.loading() = AuthStateLoading;
+  const factory AuthState.authenticated(UserEntity user) = AuthStateAuthenticated;
+  const factory AuthState.unauthenticated() = AuthStateUnauthenticated;
+  const factory AuthState.error(String message) = AuthStateError;
+  const factory AuthState.passwordResetSent() = AuthStatePasswordResetSent;
 }
 
-class _AuthStateInitial extends AuthState {
-  const _AuthStateInitial();
+class AuthStateInitial extends AuthState {
+  const AuthStateInitial();
 }
 
-class _AuthStateLoading extends AuthState {
-  const _AuthStateLoading();
+class AuthStateLoading extends AuthState {
+  const AuthStateLoading();
 }
 
-class _AuthStateAuthenticated extends AuthState {
-  const _AuthStateAuthenticated(this.user);
+class AuthStateAuthenticated extends AuthState {
+  const AuthStateAuthenticated(this.user);
   final UserEntity user;
 }
 
-class _AuthStateUnauthenticated extends AuthState {
-  const _AuthStateUnauthenticated();
+class AuthStateUnauthenticated extends AuthState {
+  const AuthStateUnauthenticated();
 }
 
-class _AuthStateError extends AuthState {
-  const _AuthStateError(this.message);
+class AuthStateError extends AuthState {
+  const AuthStateError(this.message);
   final String message;
 }
 
-class _AuthStatePasswordResetSent extends AuthState {
-  const _AuthStatePasswordResetSent();
+class AuthStatePasswordResetSent extends AuthState {
+  const AuthStatePasswordResetSent();
 }
 
 // Provider for auth controller

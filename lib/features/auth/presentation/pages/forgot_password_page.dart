@@ -30,7 +30,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
     final theme = Theme.of(context);
 
     ref.listen<AuthState>(authControllerProvider, (_, state) {
-      if (state is _AuthStatePasswordResetSent) {
+      if (state is AuthStatePasswordResetSent) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Password reset email sent! Check your inbox.'),
@@ -38,10 +38,10 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
           ),
         );
         context.pop();
-      } else if (state is _AuthStateError) {
+      } else if (state is AuthStateError) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text((state as dynamic).message as String),
+            content: Text((state as AuthStateError).message),
             backgroundColor: AppColors.error,
           ),
         );
@@ -100,7 +100,7 @@ class _ForgotPasswordPageState extends ConsumerState<ForgotPasswordPage> {
                 const SizedBox(height: 24),
                 GradientButton(
                   text: 'Send Reset Link',
-                  isLoading: authState is _AuthStateLoading,
+                  isLoading: authState is AuthStateLoading,
                   onPressed: () {
                     if (_formKey.currentState?.validate() ?? false) {
                       ref.read(authControllerProvider.notifier).resetPassword(
