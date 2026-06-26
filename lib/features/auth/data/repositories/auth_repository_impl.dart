@@ -61,7 +61,6 @@ class AuthRepositoryImpl implements AuthRepository {
       await supabase.from('profiles').upsert({
         'id': response.user!.id,
         'display_name': displayName,
-        'email': email,
         'subscription_tier': 'free',
         'storage_used': 0,
         'document_count': 0,
