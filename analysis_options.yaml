@@ -1,8 +1,6 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
-  plugins:
-    - dart_code_metrics
   exclude:
     - '**/*.g.dart'
     - '**/*.freezed.dart'
