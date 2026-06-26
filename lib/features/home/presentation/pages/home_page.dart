@@ -10,7 +10,6 @@ import '../../../auth/presentation/providers/auth_provider.dart';
 import '../../../documents/domain/entities/document_entity.dart';
 import '../../../documents/presentation/providers/document_provider.dart';
 import '../../../documents/presentation/widgets/document_card.dart';
-import '../../../reminders/presentation/providers/reminder_provider.dart';
 import '../widgets/ai_insight_card.dart';
 import '../widgets/expiry_alert_card.dart';
 import '../widgets/home_stats_card.dart';
