@@ -20,13 +20,7 @@ class VaultAIApp extends ConsumerWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: settings.themeMode,
       routerConfig: router,
-      builder: (context, child) {
-        return MediaQuery(
-          data: MediaQuery.of(context).copyWith(
-            textScaler: const TextScaler.linear(1.0),
-          ),
-          child: child ?? const SizedBox.shrink(),
-        );
+      builder: (context, child) => child ?? const SizedBox.shrink(),
       },
     );
   }
