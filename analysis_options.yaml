@@ -13,10 +13,8 @@ analyzer:
 linter:
   rules:
     - always_declare_return_types
-    - always_put_control_body_on_new_line
     - avoid_empty_else
     - avoid_print
-    - avoid_relative_imports
     - avoid_returning_null_for_void
     - avoid_unnecessary_containers
     - avoid_web_libraries_in_flutter
