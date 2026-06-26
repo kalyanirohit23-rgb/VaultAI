@@ -323,8 +323,7 @@ class _DocumentUploadPageState extends ConsumerState<DocumentUploadPage> {
           backgroundColor: AppColors.error,
         ),
       ),
-      (doc) {
-        ref.read(documentsProvider.notifier).refresh();
+      (_) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Document uploaded successfully!'),
